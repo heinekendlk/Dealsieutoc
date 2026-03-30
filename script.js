@@ -1,3 +1,4 @@
+
 const state = {
   allDeals: [],
   filteredDeals: [],
@@ -62,6 +63,16 @@ function bindEvents() {
     state.visibleCount += state.step;
     renderDeals();
   });
+
+  // Xử lý hiệu ứng co giãn Header khi cuộn trang (chủ yếu cho mobile)
+  const header = document.querySelector('.site-header');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+      header.classList.add('header-shrunk');
+    } else {
+      header.classList.remove('header-shrunk');
+    }
+  }, { passive: true });
 }
 
 function calcDiscount(oldPrice, newPrice) {
