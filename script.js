@@ -59,10 +59,14 @@ function bindEvents() {
     applyFilters();
   });
 
-  loadMoreBtn.addEventListener('click', () => {
-    state.visibleCount += state.step;
-    renderDeals();
-  });
+  // Tự động tải thêm khi cuộn (Infinite Scroll)
+  const observer = new IntersectionObserver((entries) => {
+    if (entries[0].isIntersecting && state.visibleCount < state.filteredDeals.length) {
+      state.visibleCount += state.step;
+      renderDeals();
+    }
+  }, { rootMargin: '200px' }); // Tải trước khi người dùng chạm hẳn đáy 200px
+  observer.observe(loadMoreBtn);
 
   // Xử lý hiệu ứng co giãn Header khi cuộn trang (chủ yếu cho mobile)
   const header = document.querySelector('.site-header');
