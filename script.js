@@ -37,6 +37,7 @@ async function init() {
     renderCoupons();
     applyFilters();
     bindEvents();
+    showIOSPrompt();
   } catch (error) {
     dealGrid.innerHTML = `<div class="empty-state"><h3>Lỗi tải dữ liệu</h3><p>${error.message}</p></div>`;
     console.error(error);
@@ -130,6 +131,24 @@ function renderCoupons() {
       <button class="copy-btn" onclick="copyCoupon('${item.coupon}')">Copy</button>
     </div>
   `).join('');
+}
+
+function showIOSPrompt() {
+  const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) || 
+                (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+  const isStandalone = window.navigator.standalone === true || 
+                       window.matchMedia('(display-mode: standalone)').matches;
+
+  if (isIOS && !isStandalone) {
+    const prompt = document.getElementById('ios-prompt');
+    if (!prompt) return;
+    
+    prompt.classList.remove('hidden');
+    setTimeout(() => {
+      prompt.style.opacity = '0';
+      setTimeout(() => prompt.classList.add('hidden'), 1000);
+    }, 10000); // Tự động ẩn sau 10 giây
+  }
 }
 
 function applyFilters() {
