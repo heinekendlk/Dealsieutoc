@@ -395,6 +395,11 @@ select {
 .deal-brand {
   font-size: 0.85rem;
   color: var(--muted);
+  display: -webkit-box;
+  -webkit-line-clamp: 1; /* Giới hạn tối đa 1 dòng */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  line-height: 1.5;
 }
 
 .price-row {
