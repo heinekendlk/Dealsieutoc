@@ -87,12 +87,15 @@ select {
 .brand-logo {
   width: 52px;
   height: 52px;
-  display: grid;
-  place-items: center;
   border-radius: 16px;
-  background: linear-gradient(135deg, #ff7a1a, #ff3d00);
-  color: #fff;
-  font-size: 24px;
+  overflow: hidden;
+  background: none; /* Loại bỏ nền gradient cũ */
+}
+
+.brand-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .brand h1 {
@@ -420,7 +423,6 @@ select {
   gap: 10px;
   font-size: 0.85rem;
   color: var(--muted);
-  display:none;
 }
 
 .stock-bar {
