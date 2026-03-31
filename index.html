@@ -19,14 +19,15 @@
       <div class="brand">
         <div class="brand-logo">🔥</div>
         <div>
-          <h1>Săn Deal Nhanh Như Chớp</h1>
+          <h1>Săn Deal Nhanh</h1>
           <p>Deal hot • Mã ngon • Giá tốt mỗi ngày</p>
         </div>
       </div>
 
-      <div class="header-actions">
-        <input type="text" id="searchInput" placeholder="Tìm sản phẩm, thương hiệu..." aria-label="Tìm kiếm sản phẩm" />
-      </div>
+      <form class="header-actions" onsubmit="return false;">
+        <label for="searchInput" class="sr-only">Tìm kiếm</label>
+        <input type="search" id="searchInput" placeholder="Tìm sản phẩm, thương hiệu..." aria-label="Tìm kiếm sản phẩm" />
+      </form>
     </div>
   </header>
 
@@ -36,7 +37,7 @@
         <div class="hero-left card">
           <span class="hero-badge">🔥 DEAL HOT HÔM NAY</span>
           <h2 id="heroTitle">Đang tải deal tốt nhất...</h2>
-          <p id="heroDesc">Hệ thống tự động chọn deal có mức giảm giá hấp dẫn nhất.</p>
+          <p id="heroDesc">Hệ thống tự động chọn deal có mức giảm hấp dẫn nhất từ dữ liệu JSON.</p>
           <div class="hero-stats">
             <div><strong id="heroDiscount">0%</strong><span>Giảm giá</span></div>
             <div><strong id="heroCoupon">---</strong><span>Mã giảm</span></div>
@@ -56,7 +57,7 @@
       <div class="container toolbar card">
         <div class="toolbar-group">
           <label for="categoryFilter">Danh mục</label>
-          <select id="categoryFilter">
+          <select id="categoryFilter" aria-label="Chọn danh mục sản phẩm">
             <option value="all">Tất cả danh mục</option>
           </select>
         </div>
@@ -83,7 +84,7 @@
       <div class="container">
         <div class="section-head">
           <h2>Danh sách deal nổi bật</h2>
-          <p>Mỗi sản phẩm là 1 món hời, cập nhật tự động từ Shopee</code></p>
+          <p>Mỗi sản phẩm là 1 card deal, tự động render từ file <code>products.json</code></p>
         </div>
 
         <div id="dealGrid" class="deal-grid"></div>
