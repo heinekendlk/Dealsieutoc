@@ -14,6 +14,7 @@ const dealCount = document.getElementById('dealCount');
 const loadMoreBtn = document.getElementById('loadMoreBtn');
 const emptyState = document.getElementById('emptyState');
 const couponList = document.getElementById('couponList');
+const filterLinkWrap = document.getElementById('filterLinkWrap');
 
 async function init() {
   try {
@@ -33,6 +34,13 @@ async function init() {
     }));
 
     buildCategoryOptions();
+
+    // Đọc tham số từ URL khi tải trang
+    const params = new URLSearchParams(window.location.search);
+    if (params.has('q')) searchInput.value = params.get('q');
+    if (params.has('cat')) categoryFilter.value = params.get('cat');
+    if (params.has('sort')) sortFilter.value = params.get('sort');
+
     renderHero();
     renderCoupons();
     applyFilters();
@@ -168,6 +176,17 @@ function applyFilters() {
   const category = categoryFilter.value;
   const sortValue = sortFilter.value;
 
+  // Cập nhật URL và Link chia sẻ
+  const params = new URLSearchParams();
+  if (keyword) params.set('q', keyword);
+  if (category !== 'all') params.set('cat', category);
+  if (sortValue !== 'featured') params.set('sort', sortValue);
+
+  const newUrl = params.toString() ? `${window.location.origin}${window.location.pathname}?${params.toString()}` : window.location.origin + window.location.pathname;
+  window.history.replaceState({}, '', newUrl);
+  
+  updateShareLinkUI(newUrl, params.toString());
+
   let results = [...state.allDeals].filter(item => {
     const matchKeyword =
       item.title.toLowerCase().includes(keyword) ||
@@ -201,6 +220,16 @@ function applyFilters() {
 
   state.filteredDeals = results;
   renderDeals();
+}
+
+function updateShareLinkUI(fullUrl, hasParams) {
+  const shareInput = document.getElementById('shareableLink');
+  if (hasParams) {
+    filterLinkWrap.classList.remove('hidden');
+    shareInput.value = fullUrl;
+  } else {
+    filterLinkWrap.classList.add('hidden');
+  }
 }
 
 function renderDeals() {
