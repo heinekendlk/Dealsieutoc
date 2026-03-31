@@ -109,9 +109,9 @@ function renderHero() {
   document.getElementById('heroCategory').textContent = bestDeal.category;
   document.getElementById('heroBtn').href = bestDeal.affiliateUrl || '#dealSection';
 
-  const heroImg = document.getElementById('heroImage');
-  if (heroImg && bestDeal.image) {
-    heroImg.src = bestDeal.image;
+  const heroCard = document.getElementById('heroCard');
+  if (heroCard && bestDeal.image) {
+    heroCard.style.backgroundImage = `linear-gradient(90deg, rgba(255,255,255,0.95) 40%, rgba(255,255,255,0)), url('${bestDeal.image}')`;
   }
 }
 
