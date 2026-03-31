@@ -147,6 +147,11 @@ select {
 .hero-left h2 {
   font-size: clamp(1.6rem, 2.8vw, 2.4rem);
   margin-bottom: 10px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* Giới hạn tối đa 2 dòng */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  line-height: 1.5;
 }
 
 .hero-left p {
