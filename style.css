@@ -375,6 +375,11 @@ select {
   font-size: 1rem;
   font-weight: 700;
   min-height: 48px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* Giới hạn tối đa 2 dòng */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  line-height: 1.5;
 }
 
 .deal-title a {
