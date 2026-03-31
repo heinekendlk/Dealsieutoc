@@ -148,7 +148,7 @@ select {
   font-size: clamp(1.6rem, 2.8vw, 2.4rem);
   margin-bottom: 10px;
   display: -webkit-box;
-  -webkit-line-clamp: 3; /* Giới hạn tối đa 2 dòng */
+  -webkit-line-clamp: 2; /* Giới hạn tối đa 2 dòng */
   -webkit-box-orient: vertical;
   overflow: hidden;
   line-height: 1.5;
@@ -400,8 +400,8 @@ select {
 .deal-brand {
   font-size: 0.85rem;
   color: var(--muted);
-  display: -webkit-box;
-  -webkit-line-clamp: 1; /* Giới hạn tối đa 1 dòng */
+   display: -webkit-box;
+  -webkit-line-clamp: 2; /* Giới hạn tối đa 2 dòng */
   -webkit-box-orient: vertical;
   overflow: hidden;
   line-height: 1.5;
@@ -665,4 +665,33 @@ select {
   display: inline-block;
   vertical-align: middle;
   margin: 0 2px;
+}
+
+/* Nút Back to Top */
+.back-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 48px;
+  height: 48px;
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  font-weight: bold;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  z-index: 99;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.back-to-top.visible {
+  opacity: 1;
+  visibility: visible;
 }
