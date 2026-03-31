@@ -690,12 +690,38 @@ select {
   visibility: hidden;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
+
 .back-to-top:hover {
   background: var(--primary-dark);
   transform: scale(1.15);
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
 }
+
 .back-to-top.visible {
   opacity: 1;
   visibility: visible;
+}
+
+.filter-link-wrap {
+  margin-bottom: 20px;
+}
+
+.filter-link-card {
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.9rem;
+  border: 1px solid var(--line);
+}
+
+.filter-link-card input {
+  flex: 1;
+  padding: 8px 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--bg);
+  color: var(--primary);
+  font-weight: 500;
+  cursor: pointer;
 }
