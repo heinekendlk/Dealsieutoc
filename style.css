@@ -108,22 +108,28 @@ select {
   color: var(--muted);
 }
 
-.header-nav {
+.top-bar {
+  background: #1f2937; /* Màu tối sang trọng */
+  padding: 8px 0;
+}
+
+.top-bar-wrap {
   display: flex;
-  gap: 20px;
+  justify-content: flex-end; /* Đẩy các link sang bên phải */
+  gap: 24px;
   align-items: center;
 }
 
-.header-nav a {
+.top-bar a {
   text-decoration: none;
-  color: var(--text);
-  font-weight: 600;
-  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 500;
+  font-size: 0.85rem;
   white-space: nowrap;
-  transition: color 0.2s ease;
+  transition: all 0.2s ease;
 }
 
-.header-nav a:hover {
+.top-bar a:hover {
   color: var(--primary);
 }
 
@@ -563,11 +569,10 @@ select {
     padding: 12px 0;
   }
 
-  .header-nav {
-    order: 2; /* Đưa menu xuống dưới logo trên mobile */
-    margin-bottom: 10px;
+  .top-bar-wrap {
+    justify-content: center; /* Căn giữa trên mobile */
+    gap: 15px;
   }
-
   .header-shrunk .brand {
     max-height: 0;
     opacity: 0;
