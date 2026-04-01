@@ -53,10 +53,13 @@ select {
   display: none !important;
 }
 
-.site-header {
+.sticky-nav {
   position: sticky;
   top: 0;
-  z-index: 50;
+  z-index: 500;
+}
+
+.site-header {
   background: rgba(255, 255, 255, 0.92);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(229, 231, 235, 0.8);
