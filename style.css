@@ -757,3 +757,46 @@ select {
   font-weight: 500;
   cursor: pointer;
 }
+
+/* Nút nhấn nhắn tin messenger facebook */
+.fb-messenger-button {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 9999;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 60px;
+        height: 60px;
+        background-color: #0084FF; /* Màu xanh đặc trưng của Messenger */
+        border-radius: 50%;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        transition: transform 0.3s ease, background-color 0.3s ease;
+        cursor: pointer;
+    }
+
+    .fb-messenger-button:hover {
+        transform: scale(1.1); /* Phóng to nhẹ khi di chuột vào */
+        background-color: #0073e6;
+    }
+
+    .fb-messenger-button svg {
+        width: 32px;
+        height: 32px;
+        fill: white;
+    }
+
+    /* Hiệu ứng rung nhẹ để gây chú ý */
+    @keyframes messenger-wiggle {
+        0% { transform: rotate(0deg); }
+        80% { transform: rotate(0deg); }
+        85% { transform: rotate(5deg); }
+        90% { transform: rotate(-5deg); }
+        95% { transform: rotate(5deg); }
+        100% { transform: rotate(0deg); }
+    }
+
+    .fb-messenger-button {
+        animation: messenger-wiggle 3s infinite;
+    }
