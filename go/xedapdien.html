@@ -2,9 +2,10 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Đang chuyển hướng sang Shopee...</title>
     
-    <!-- 1. Đoạn mã Meta Pixel của bạn -->
+    <!-- Meta Pixel Code -->
     <script>
       !function(f,b,e,v,n,t,s)
       {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -15,21 +16,34 @@
       s.parentNode.insertBefore(t,s)}(window, document,'script',
       'https://connect.facebook.net/en_US/fbevents.js');
       
-      fbq('init', '4476481915931181'); // ID Dataset Deal Siêu Tốc
-      fbq('track', 'ViewContent'); // Tự động gửi sự kiện khi trang mở
+      fbq('init', '4476481915931181');
+      fbq('track', 'ViewContent'); // Tự động bắn sự kiện ViewContent
     </script>
-    
-    <!-- 2. Tự động chuyển hướng sang link Shopee sau 1.5 giây -->
+    <noscript>
+      <img height="1" width="1" style="display:none" 
+           src="https://www.facebook.com/tr?id=4476481915931181&ev=ViewContent&noscript=1"/>
+    </noscript>
+    <!-- End Meta Pixel Code -->
+
+    <!-- Chuyển hướng tự động sang Shopee sau 1.5 giây -->
     <script>
       setTimeout(function() {
-          window.location.href = "####"; // Dán link Affiliate Shopee ở đây
+          window.location.href = "https://s.shopee.vn/6L0AGhF6Ld"; // Link Affiliate Shopee
       }, 1500);
     </script>
 </head>
-<body style="display: flex; justify-content: center; align-items: center; height: 100vh; font-family: sans-serif; background: #f9f9f9; color: #333;">
-    <div style="text-align: center;">
-        <h2 style="color: #ee4d2d;">Đang chuyển hướng bạn sang Shopee...</h2>
-        <p>Vui lòng đợi 1.5 giây để nhận ưu đãi từ Deal Siêu Tốc.</p>
+<body style="display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: #f8f9fa;">
+    <div style="text-align: center; padding: 20px;">
+        <div style="width: 40px; height: 40px; border: 4px solid #f3f3f3; border-top: 4px solid #ee4d2d; border-radius: 50%; animation: spin 1s linear infinite; margin: 0 auto 15px;"></div>
+        <h3 style="color: #333; margin-bottom: 8px;">Đang chuyển hướng sang Shopee...</h3>
+        <p style="color: #666; font-size: 14px; margin: 0;">Vui lòng chờ trong giây lát để nhận ưu đãi tốt nhất.</p>
     </div>
+
+    <style>
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+    </style>
 </body>
 </html>
