@@ -59,12 +59,26 @@
   gtag('config', 'G-KPSK43Q19G');
 </script>
 
-    <!-- Chuyển hướng tự động sang Shopee sau 1.5 giây -->
-    <script>
-      setTimeout(function() {
-          window.location.href = "https://s.shopee.vn/9pdHMwvZzI"; // Link Affiliate Shopee
-      }, 2000);
-    </script>
+    <!-- Chuyển hướng thông minh mở App Shopee -->
+<script>
+  setTimeout(function() {
+    var rawUrl = "https://s.shopee.vn/9pdHMwvZzI";
+    
+    // Tạo link Intent cho Android để bẻ lái khỏi Facebook In-App Browser
+    var intentUrl = "intent://s.shopee.vn/9pdHMwvZzI#Intent;scheme=https;package=com.shopee.vn;end";
+
+    // Kiểm tra thiết bị iOS / iPadOS
+    var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+    var isAndroid = /Android/i.test(navigator.userAgent);
+
+    if (isAndroid) {
+      window.location.href = intentUrl;
+    } else {
+      // Dành cho iOS/iPadOS và Desktop
+      window.location.href = rawUrl;
+    }
+  }, 1500);
+</script>
 </head>
 <body style="display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: #f8f9fa;">
     <div style="text-align: center; padding: 20px;">
@@ -79,12 +93,19 @@
         <p style="color: #666; font-size: 14px; margin: 0;">Vui lòng chờ trong giây lát để nhận ưu đãi tốt nhất.</p>
         
         <!-- Nút bấm thủ công dành cho khách hàng muốn đi ngay -->
-        <div style="margin-top: 25px;">
-            <a href="https://s.shopee.vn/9pdHMwvZzI" 
-               style="display: inline-block; padding: 12px 24px; background-color: #ee4d2d; color: #fff; text-decoration: none; border-radius: 4px; font-weight: bold; font-size: 16px; box-shadow: 0 2px 4px rgba(238, 77, 45, 0.3); transition: background-color 0.2s ease;">
-                Xem Ngay Tại Shopee
-            </a>
-        </div>
+        <!-- Nút bấm thủ công ép mở App Shopee -->
+<div style="margin-top: 25px;">
+  <a id="shopee-btn" href="https://s.shopee.vn/9pdHMwvZzI" target="_blank" rel="noopener noreferrer" style="display: inline-block; padding: 14px 28px; background-color: #ee4d2d; color: #fff; text-decoration: none; border-radius: 6px; font-weight: bold; font-size: 16px; box-shadow: 0 3px 8px rgba(238, 77, 45, 0.4); transition: background-color 0.2s ease;">
+    Mở Trực Tiếp Trên App Shopee
+  </a>
+</div>
+
+<script>
+  // Tối ưu link cho nút bấm trên Android
+  if (/Android/i.test(navigator.userAgent)) {
+    document.getElementById('shopee-btn').href = "intent://s.shopee.vn/9pdHMwvZzI#Intent;scheme=https;package=com.shopee.vn;end";
+  }
+</script>
     </div>
 
     <style>
